@@ -1,0 +1,21 @@
+plugins {
+    id 'java'
+}
+
+group 'hdevalke'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.11
+
+repositories {
+    mavenCentral()
+}
+
+test {
+    useJUnitPlatform()
+}
+
+dependencies {
+    testCompile("org.junit.jupiter:junit-jupiter-api:5.4.0")
+    testRuntime("org.junit.jupiter:junit-jupiter-engine:5.4.0")
+}
