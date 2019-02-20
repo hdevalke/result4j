@@ -1,8 +1,6 @@
 package result4j;
 
-
 import org.junit.jupiter.api.Test;
-import result4j.Result;
 
 import java.util.Optional;
 
@@ -91,25 +89,25 @@ class ResultTest {
     @Test
     void unwrap() {
         assertEquals(1, Result.ok(1).unwrap());
-        assertThrows(NullPointerException.class, Result.err(1)::unwrap);
+        assertThrows(Result.ResultException.class, Result.err(1)::unwrap);
     }
 
     @Test
     void expect() {
         assertEquals(1, Result.ok(1).expect("no error"));
-        assertThrows(NullPointerException.class, () -> Result.err(1).expect("error msg"), "error msg");
+        assertThrows(Result.ResultException.class, () -> Result.err(1).expect("error msg"), "error msg");
     }
 
     @Test
     void unwrapErr() {
         assertEquals(1, Result.err(1).unwrapErr());
-        assertThrows(NullPointerException.class, Result.ok(1)::unwrapErr);
+        assertThrows(Result.ResultException.class, Result.ok(1)::unwrapErr);
     }
 
     @Test
     void expectErr() {
         assertEquals(1, Result.err(1).expectErr("no error"));
-        assertThrows(NullPointerException.class, () -> Result.ok(1).expectErr("error msg"), "error msg");
+        assertThrows(Result.ResultException.class, () -> Result.ok(1).expectErr("error msg"), "error msg");
     }
 
     @Test
@@ -143,10 +141,10 @@ class ResultTest {
         var c = Result.err(1);
         var d = Result.err(2);
         assertNotEquals(a.hashCode(), b.hashCode());
-        assertNotEquals(a.hashCode(), c.hashCode());
+        assertEquals(a.hashCode(), c.hashCode());
         assertNotEquals(a.hashCode(), d.hashCode());
         assertNotEquals(b.hashCode(), c.hashCode());
-        assertNotEquals(b.hashCode(), d.hashCode());
+        assertEquals(b.hashCode(), d.hashCode());
         assertNotEquals(c.hashCode(), d.hashCode());
     }
 

@@ -6,11 +6,14 @@ A Result type for java. Inspired by the Rust Result type.
 import static result4j.Result.ok;
 import static result4j.Result.err;
 
-public static void main() {
-    Result<Integer, Integer> good = ok(1);
-    assert 2 == good.map(i -> i + 1).unwrapOr(0);
+public class Main {
 
-    Result<Integer, Integer> bad = err(1);
-    assert 0 == bad.map(i -> i + 1).unwrapOr(0);
+    public static void main(String... args) {
+        Result<Integer, Integer> good = ok(1);
+        assert 2 == good.map(i -> i + 1).unwrapOr(0);
+
+        Result<Integer, Integer> bad = err(1);
+        assert 0 == bad.map(i -> i + 1).unwrapOr(0);
+    }
 }
 ```

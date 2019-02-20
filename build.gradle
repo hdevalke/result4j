@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id "me.champeau.gradle.jmh" version "0.4.8"
 }
 
 group 'hdevalke'
@@ -18,4 +19,11 @@ test {
 dependencies {
     testCompile("org.junit.jupiter:junit-jupiter-api:5.4.0")
     testRuntime("org.junit.jupiter:junit-jupiter-engine:5.4.0")
+}
+
+jmh {
+    fork = 1
+    profilers = ["gc"]
+    timeOnIteration = "1s"
+    warmup = "1s"
 }
