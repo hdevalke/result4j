@@ -1,3 +1,11 @@
+![Maintenance](https://img.shields.io/maintenance/no/2020)
+
+Alternative libraries with ADTs:
+
+- https://github.com/HubSpot/algebra
+- https://www.functionaljava.org/
+- https://www.vavr.io/
+
 # result4j
 
 A Result type for java. Inspired by the Rust Result type.
