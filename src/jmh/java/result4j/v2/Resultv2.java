@@ -234,7 +234,7 @@ public class Resultv2<T, E> implements Iterable<T> {
 
     @Override
     public Iterator<T> iterator() {
-        return new Iterator<>() {
+        return new Iterator<T>() {
 
             boolean more = err == null;
 
